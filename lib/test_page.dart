@@ -32,10 +32,28 @@ class _TestPageState extends State<TestPage> {
             width: 50,
             height: 80,
             color: Colors.green,
-          )
+          ),
+          Container(
+            width: 150,
+            child: Text(
+             '練習文字列',
+              style: TextStyle(
+                fontSize: 40,
+                color: Colors.red,
+                //decoration: TextDecoration.lineThrough,
+                fontStyle: FontStyle.italic,
+              ),
+              //「overflow」文字列が途中で途切れた時...で表示する工夫
+              overflow: TextOverflow.ellipsis,
+            ),
+            //color: Colors.lightGreen,
+          ),
         ],
       ),
-      backgroundColor: Colors.red,
+      //「Drawer」画面はじにメニュー追加してドロワーをスワイプできるようにする
+      drawer: Drawer(),
+      //endDrawer: Drawer(),
+      backgroundColor: Colors.yellowAccent,
     );
   }
 }
