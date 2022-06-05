@@ -84,5 +84,5 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 
-//memo 頭大文字はウィジェット
+//Memo 頭大文字はウィジェット
 //memo 頭小文字はプロパティ

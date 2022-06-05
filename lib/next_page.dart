@@ -21,18 +21,21 @@ class _NextPageState extends State<NextPage> {
       appBar: AppBar(
         title: Text(widget.title),//widget.をつけると↑で定義しているtitle変数を使えるようになる。
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(//Columnウィジェットのchildrenプロパティでウィジェットを縦に表示する
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Container(
-                  width: 50,
-                  child: Text('ID')
-                ),
-                Container(
+      body: Column(
+        //crossAxisAlignment: CrossAxisAlignment.start,
+        children:[
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(//Columnウィジェットのchildrenプロパティでウィジェットを縦に表示する
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                 Container(
+                    width: 50,
+                    child: Text('ID')
+                  ),
+                  Container(
                   width: 20,
                   child: Text('：')),
                 Text('毎回同じIDを表示'),
@@ -56,6 +59,22 @@ class _NextPageState extends State<NextPage> {
           ],
         ),
       ),
+          Padding(padding: EdgeInsets.all(10)),
+          Container(
+            //width: 100,
+            child: TextButton(
+              onPressed: (){
+                //ボタン押下時の処理
+                Navigator.push(context, MaterialPageRoute(builder: (context) => TestPage()));
+              },
+              child: Text('テストページへ'),
+            ),
+            color: Colors.lightGreen,
+
+          ),
+    ],
+    ),
+
     );
   }
 }
