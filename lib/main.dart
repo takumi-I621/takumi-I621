@@ -47,37 +47,58 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('パスワードポスト'),
+        //centerTitleをtrueでタイトル文字を中央寄せ
+        centerTitle: true,
+        title: Text('Home'),
       ),
 
-      body: ListView.builder(
-          itemCount: titleList.length,
-          itemBuilder: (BuildContext context, int i){
-            return Column(
-              children: [
-                ListTile(
-                  onTap: (){
-                    //画面遷移の処理を描く
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => NextPage(titleList[i])));
-                  },
-                  leading: Icon(Icons.vpn_key),
-                  title: Text(titleList[i]),
-                ),
-                Divider(thickness: 1,),
-              ],
-            );
-          },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          //ボタンが押された時の処理
-          titleList.add('Google');
-          print(titleList);
-          setState(() {//SetState()でBuildを再度更新かける？
-          });
-        },
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      //https://codezine.jp/article/detail/14711
+      body: Center(
+        child: Column(
+          //crossAxisAlignment: CrossAxisAlignment.start,
+          children:[
+            Padding(
+              padding: const EdgeInsets.only(top: 150),
+              child: Column(//Columnウィジェットのchildrenプロパティでウィジェットを縦に表示する
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Stack(
+                    children: [
+                      Align(
+                        alignment: Alignment.center,
+                          child: Container(
+                            width: 330,
+                            height: 280,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white),
+                              borderRadius: BorderRadius.circular(70),
+                              color: Colors.blue[200],
+                              ),
+                            ),
+                      ),
+                      Align(
+                        alignment: Alignment.center,
+                          child: Container(
+                        width: 130,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.white),
+                          borderRadius: BorderRadius.circular(70),
+                          color: Colors.red[200],
+                        ),
+                      ),
+                      ),
+                    ],
+
+                  ),
+                  //余白を設ける
+                  Padding(padding: EdgeInsets.all(10)),
+                ],
+              ),
+            ),
+            Padding(padding: EdgeInsets.all(10)),
+          ],
+        ),
       ),
     );
   }
