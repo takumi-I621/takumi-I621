@@ -1,7 +1,7 @@
 //↓StatefulWidgetとかContainerとかはmaterial.dartをインポートすると使える。
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'test_page.dart';
+//import 'test_page.dart';
 
 
 //↓クラス名にNextPageを指定している。

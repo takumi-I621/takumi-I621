@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'next_page.dart';
+import 'counter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,11 +36,6 @@ class _MyHomePageState extends State<MyHomePage> {
   //List<String> titleList = ['amazon', '楽天', 'Yahoo!', 'みずほ銀行', 'セゾン'];
   //int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      //_counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +45,13 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         //centerTitleをtrueでタイトル文字を中央寄せ
         centerTitle: true,
-        title: Text('Home'),
+        title: const Text(
+            'Home',
+          style: TextStyle(
+            fontSize: 30,
+          ),
+
+        ),
       ),
 
       //https://codezine.jp/article/detail/14711
@@ -61,39 +62,115 @@ class _MyHomePageState extends State<MyHomePage> {
             Column(
               children: <Widget>[
                 const Padding(padding: EdgeInsets.only(top: 100)),
-                Container(
-                    alignment: Alignment.center,
+                //ElevatedButton：動きのあるボタン
+                SizedBox(
+                  width: 150,
+                  height: 50,
+                  child: ElevatedButton(
                     child: const Text(
-                      'カウンター',
+                      'カウンター1',
                       style: TextStyle(
-                        fontSize: 20,
-                        fontStyle: FontStyle.normal,
+                        color: Colors.black,
                       ),
                     ),
-                    //color: Colors.blue,
-                    width: 130,
-                    height:50,
-                    decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white),
-                    borderRadius: BorderRadius.circular(70),
-                    color: Colors.red[200],
+                    style: ElevatedButton.styleFrom(
+                      //ボタンの背景色
+                      primary: Colors.grey[300],
+                      //ボタンの枠色
+                      side: const BorderSide(
+                        color: Colors.black,
+                      ),
+                      //押したときの色↓
+                      onPrimary: Colors.red,
+                    ),
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const Counter()));
+                    },
+                  ),
                 ),
-              ),
 
-                const Padding(padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),),
-                Container( color: Colors.red, width: 100, height:100 ),
+
+                const Padding(padding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),),
+                SizedBox(
+                  width: 150,
+                  height: 50,
+                  child: ElevatedButton(
+                    child: const Text(
+                      'カウンター3',
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      //ボタンの背景色
+                      primary: Colors.grey[300],
+                      //ボタンの枠色
+                      side: const BorderSide(
+                        color: Colors.black,
+                      ),
+                      //押したときの色↓
+                      onPrimary: Colors.red,
+                    ),
+                    onPressed: () {},
+                  ),
+                ),
+
               ],
             ),
 
-            const Padding(padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),),
+            const Padding(padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),),
 
             Column(
               children: <Widget>[
                 const Padding(padding: EdgeInsets.only(top: 100)),
-                Container( color: Colors.green, width: 100, height:100 ),
+                SizedBox(
+                  width: 150,
+                  height: 50,
+                  child: ElevatedButton(
+                    child: const Text(
+                      'カウンター2',
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      //ボタンの背景色
+                      primary: Colors.grey[300],
+                      //ボタンの枠色
+                      side: const BorderSide(
+                        color: Colors.black,
+                      ),
+                      //押したときの色↓
+                      onPrimary: Colors.red,
+                    ),
+                    onPressed: () {},
+                  ),
+                ),
 
                 const Padding(padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),),
-                Container( color: Colors.orange, width: 100, height:100 ),
+                SizedBox(
+                  width: 150,
+                  height: 50,
+                  child: ElevatedButton(
+                    child: const Text(
+                      'カウンター4',
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      //ボタンの背景色
+                      primary: Colors.grey[300],
+                      //ボタンの枠色
+                      side: const BorderSide(
+                        color: Colors.black,
+                      ),
+                      //押したときの色↓
+                      onPrimary: Colors.red,
+                    ),
+                    onPressed: () {},
+                  ),
+                ),
               ],
             ),
 
@@ -104,67 +181,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-
-      /*body: Center(
-        child: Column(
-          //crossAxisAlignment: CrossAxisAlignment.start,
-          children:[
-            Padding(
-              padding: const EdgeInsets.only(top: 150),
-              child: Column(//Columnウィジェットのchildrenプロパティでウィジェットを縦に表示する
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  //Containerの重ね方
-                  //https://www.choge-blog.com/programming/fluttercontainer-overlay/
-                  Stack(
-                    children: [
-                      Align(
-                        alignment: Alignment.center,
-                        //大枠の青コンテナ
-                        child: Container(
-                          width: 330,
-                          height: 280,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white),
-                            borderRadius: BorderRadius.circular(70),
-                            color: Colors.blue[200],
-                          ),
-                        ),
-                      ),
-                      Align(
-                        //中の小さい赤コンテナ
-                        child: Container(
-                          alignment: Alignment.center,
-                          child: const Text(
-                            'カウンター',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontStyle: FontStyle.normal,
-                            ),
-                          ),
-                          width: 130,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white),
-                            borderRadius: BorderRadius.circular(70),
-                            color: Colors.red[200],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  //余白を設ける
-                  Padding(padding: EdgeInsets.all(10)),
-                ],
-              ),
-            ),
-            Padding(padding: EdgeInsets.all(10)),
-          ],
-        ),
-      ),*/
-
-
 
 //Memo 頭大文字はウィジェット
 //memo 頭小文字はプロパティ
