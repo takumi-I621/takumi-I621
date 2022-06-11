@@ -29,13 +29,125 @@ class _CounterState extends State<Counter> {
             Align(
               alignment: const Alignment(0, -0.5),
               child: Container(
-                width: 300,
-                height: 250,
-                color: Colors.black,
+                width: 360,
+                height: 300,
+                color: Colors.black87,
               ),
             ),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Align(
+                    alignment: const Alignment(0, -0.4),
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: const Text(
+                        '1',
+                        style: TextStyle(
+                          fontSize: 80,
+                          color: Colors.white,
+                        ),
+                      ),
+                      width: 50,
+                      height: 220,
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.grey,
+                          )
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: const Alignment(0, -0.4),
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: const Text(
+                        '2',
+                        style: TextStyle(
+                          fontSize: 80,
+                          color: Colors.white,
+                        ),
+                      ),
+                      width: 50,
+                      height: 220,
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.grey,
+                          )
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: const Alignment(0, -0.4),
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: const Text(
+                        '3',
+                        style: TextStyle(
+                          fontSize: 80,
+                          color: Colors.white,
+                        ),
+                      ),
+                      width: 50,
+                      height: 220,
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.grey,
+                          )
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: const Alignment(0, -0.4),
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: const Text(
+                        '4',
+                        style: TextStyle(
+                          fontSize: 80,
+                          color: Colors.white,
+                        ),
+                      ),
+                      width: 50,
+                      height: 220,
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.grey,
+                          )
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: const Alignment(0, -0.4),
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: const Text(
+                        '9',
+                        style: TextStyle(
+                          fontSize: 80,
+                          color: Colors.white,
+                        ),
+                      ),
+                      width: 50,
+                      height: 220,
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.grey,
+                          )
+                      ),
+                    ),
+                  ),
+                ]
+            )
+
           ],
         ),
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.close),
+          onPressed: () {
+            //SystemNavigator.pop();
+          },
+        )
     );
   }
 }
