@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'counter.dart';
+import 'Calendar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,9 +34,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  //List<String> titleList = ['amazon', '楽天', 'Yahoo!', 'みずほ銀行', 'セゾン'];
-  //int _counter = 0;
-
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +52,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
 
-      //https://codezine.jp/article/detail/14711
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -68,9 +65,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 50,
                   child: ElevatedButton(
                     child: const Text(
-                      'カウンター1',
+                      'Counter',
                       style: TextStyle(
                         color: Colors.black,
+                        fontSize: 22,
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
@@ -96,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 50,
                   child: ElevatedButton(
                     child: const Text(
-                      'カウンター3',
+                      '****3',
                       style: TextStyle(
                         color: Colors.black,
                       ),
@@ -114,7 +112,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () {},
                   ),
                 ),
-
               ],
             ),
 
@@ -128,9 +125,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 50,
                   child: ElevatedButton(
                     child: const Text(
-                      'カウンター2',
+                      'Calendar',
                       style: TextStyle(
                         color: Colors.black,
+                        fontSize: 22,
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
@@ -143,7 +141,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       //押したときの色↓
                       onPrimary: Colors.red,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const Calendar()));
+                    },
                   ),
                 ),
 
@@ -153,7 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 50,
                   child: ElevatedButton(
                     child: const Text(
-                      'カウンター4',
+                      '*****4',
                       style: TextStyle(
                         color: Colors.black,
                       ),
@@ -177,7 +177,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-
     );
   }
 }
