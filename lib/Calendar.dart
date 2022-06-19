@@ -17,6 +17,8 @@ class _CalendarState extends State<Calendar> {
   DateTime _focused = DateTime.now();
   DateTime? _selected;
 
+
+
   int getHashCode(DateTime key) {
     return key.day * 100000 + key.month * 10000 + key.year;
   }
@@ -144,14 +146,17 @@ class _CalendarState extends State<Calendar> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.close),
+        child: const Icon(Icons.add),
         onPressed: () {
           showDialog(
             context: context,
             builder: (context) {
               return AlertDialog(
                 title: const Text('サンプルダイアログ'),
-                content: const Text('ダイアログを閉じます。'),
+                //ダイアログに日付を表示
+                content: Text(
+                    "${_selected!.month}月${_selected?.day}日",
+                ),
                 actions: <Widget>[
                   TextButton(
                     child: const Text("CANCEL"),
@@ -170,3 +175,7 @@ class _CalendarState extends State<Calendar> {
     );
   }
 }
+
+
+// ベース↓
+// https://qiita.com/Ryota-Nakamura-317/items/56a022a37c9dd8e2d020
