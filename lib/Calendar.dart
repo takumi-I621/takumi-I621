@@ -1,14 +1,17 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:intl/date_symbol_data_local.dart';
+
 
 class Calendar extends StatefulWidget {
   const Calendar({Key? key}) : super(key: key);
 
-
   @override
   State<Calendar> createState() => _CalendarState();
+
 }
 
 class _CalendarState extends State<Calendar> {
@@ -35,6 +38,10 @@ class _CalendarState extends State<Calendar> {
 
   @override
   Widget build(BuildContext context) {
+
+    // Intlパッケージの利用
+    // 初期化のためのメソッドを追加
+    initializeDateFormatting('ja');
 
     final _events = LinkedHashMap<DateTime, List>(
       equals: isSameDay,
@@ -152,10 +159,10 @@ class _CalendarState extends State<Calendar> {
             context: context,
             builder: (context) {
               return AlertDialog(
-                title: const Text('サンプルダイアログ'),
+                title: const Text('テストダイアログ'),
                 //ダイアログに日付を表示
                 content: Text(
-                    "${_selected!.month}月${_selected?.day}日",
+                  "${DateFormat('yyyy').format(_selected!)}年${DateFormat('MM').format(_selected!)}月${DateFormat('dd').format(_selected!)}日(${DateFormat('EEEE').format(_selected!)})"
                 ),
                 actions: <Widget>[
                   TextButton(

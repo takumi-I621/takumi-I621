@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'counter.dart';
 import 'Calendar.dart';
+import 'example.dart';
 
 void main() {
   runApp(const MyApp());
@@ -94,9 +95,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 50,
                   child: ElevatedButton(
                     child: const Text(
-                      '****3',
+                      'Example',
                       style: TextStyle(
                         color: Colors.black,
+                        fontSize: 22,
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
@@ -109,7 +111,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       //押したときの色↓
                       onPrimary: Colors.red,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const Example()));
+                    },
                   ),
                 ),
               ],
